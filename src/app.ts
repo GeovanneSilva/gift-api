@@ -1,4 +1,4 @@
-import Express, {Request, Response} from 'express';
+import Express from 'express';
 import indexRoute from './routes';
 
 // Initiate express
