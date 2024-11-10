@@ -5,7 +5,11 @@ import cors from 'cors';
 // Initiate express
 const app = Express();
 
-app.use(cors());
+app.use(cors({
+  origin: '*', // Permite qualquer origem
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
+}));
 
 app.use(Express.json());
 
