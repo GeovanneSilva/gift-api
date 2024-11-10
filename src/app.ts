@@ -5,11 +5,7 @@ import cors from 'cors';
 // Initiate express
 const app = Express();
 
-app.use(cors({
-  origin: '*', // Permite requisições de qualquer origem
-  methods: 'GET,POST,PUT,DELETE',  // Métodos permitidos
-  allowedHeaders: 'Content-Type'   // Cabeçalhos permitidos
-}));
+app.use(cors());
 
 app.use(Express.json());
 
