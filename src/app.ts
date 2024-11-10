@@ -1,8 +1,15 @@
 import Express from 'express';
 import indexRoute from './routes';
+import cors from 'cors';
 
 // Initiate express
 const app = Express();
+
+app.use(cors({
+  origin: '*', // Permite requisições de qualquer origem
+  methods: 'GET,POST,PUT,DELETE',  // Métodos permitidos
+  allowedHeaders: 'Content-Type'   // Cabeçalhos permitidos
+}));
 
 app.use(Express.json());
 
