@@ -18,10 +18,13 @@ app.options('*', cors());
 // Setup “hello world” endpoint
 
 const port = process.env.PORT || 3000;
-app.use(indexRoute, (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*'); // Garante que a origem seja permitida
-  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Garante que os cabeçalhos sejam permitidos
-  res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');})
+app.options('*', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.status(200).send();
+});
+app.use(indexRoute)
 // Start the express server on the relevant port
 app.listen(port, () => {
   console.log(`server is running on ${port}`);
