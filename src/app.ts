@@ -13,6 +13,8 @@ app.use(cors({
 
 app.use(Express.json());
 
+app.options('*', cors());
+
 // Setup “hello world” endpoint
 
 const port = process.env.PORT || 3000;
