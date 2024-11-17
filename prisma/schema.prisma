@@ -20,3 +20,9 @@ model Item {
   categoryId String   @db.ObjectId
   category  Category  @relation(fields: [categoryId], references: [id])
 }
+
+model guest {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  gift String
+}

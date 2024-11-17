@@ -2,17 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "src/app.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/app.js"
+      "dest": "/src/app.ts"
     }
-  ],
-  "env": {
-    "DATABASE_URL": "mongodb+srv://root:root@cha-casa.bsaru.mongodb.net/CHA-CASA"
-  }
+  ]
 }

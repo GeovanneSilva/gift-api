@@ -1,25 +1,19 @@
-import Express from 'express';
-import indexRoute from './routes';
-import cors from 'cors';
+import Express, {Request, Response} from 'express';
+import cors from "cors"
+import giftRoute from './routes/gift.routes';
 
-// Inicia o Express
+// Initiate express
 const app = Express();
 
-// Configuração do middleware CORS
-app.use(cors({
-  origin: '*', // Permite qualquer origem
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
-  credentials: true // Se você precisar permitir cookies ou autenticação com CORS
-}));
+app.use(cors())
 
 app.use(Express.json());
 
-// Use as rotas
-app.use(indexRoute);
+// Setup “hello world” endpoint
 
-// Inicia o servidor na porta especificada
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
+app.use(giftRoute)
+// Start the express server on the relevant port
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`server is running on ${port}`);
 });

@@ -3,17 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node ./src/app.ts",
     "build": "tsc",
-    "start": "node dist/app.js",
-    "dev": "ts-node-dev src/app.ts",
-    "vercel-build": "prisma generate && npm run build"
+    "dev": "nodemon --watch ./src --ext ts --exec \"ts-node ./src/app.ts\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.8.7",
     "nodemon": "^3.1.7",
@@ -23,6 +21,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.21.1",
+    "@types/cors": "^2.8.17",
     "cors": "^2.8.5",
     "express": "^4.21.1"
   }
